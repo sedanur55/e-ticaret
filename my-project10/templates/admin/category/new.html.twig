@@ -1,0 +1,26 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}Category Ekle{% endblock %}
+
+{% block content %}
+<div class="main-panel">
+    <div class="content-wrapper">
+
+
+        <div class="col-lg-10 stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h1>Kategori Ekle</h1>
+
+                    {{ include('admin/category/_form.html.twig') }}
+
+                    <a href="{{ path('admin_category_index') }}"class="btn btn-gradient-warning btn-rounded btn-fw">Listeye Dön</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    {% endblock %}
+

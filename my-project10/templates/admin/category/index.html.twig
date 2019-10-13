@@ -1,0 +1,61 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}Category Listesi{% endblock %}
+
+{% block content %}
+<div class="main-panel">
+    <div class="content-wrapper">
+
+
+        <div class="col-lg-10 stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Kategori Listesi</h4>
+                    <p class="card-description">
+
+                    </p>
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Parentid</th>
+                            <th>Title</th>
+                            <th>Keywords</th>
+                            <th>Description</th>
+                            <th>Status</th>
+                            <th>actions</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for category in categories %}
+                            <tr>
+                                <td>{{ category.id }}</td>
+                                <td>{{ category.parentid }}</td>
+                                <td>{{ category.title }}</td>
+                                <td>{{ category.keywords }}</td>
+                                <td>{{ category.description }}</td>
+                                <td>{{ category.status }}</td>
+                                <td>
+                                    <a href="{{ path('admin_category_show', {'id': category.id,'pid':category.parentid}) }}" class="btn btn-gradient-danger btn-sm">Göster</a>
+                                    <a href="{{ path('admin_category_edit', {'id': category.id,'pid':category.parentid}) }}"class="btn btn-gradient-success btn-sm">Düzenle</a>
+                                </td>
+                            </tr>
+                        {% else %}
+                            <tr>
+                                <td colspan="7">no records found</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+
+                    <a href="{{ path('admin_category_new') }}"class="btn btn-gradient-danger btn-fw">Create new</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    {% endblock %}
+
+

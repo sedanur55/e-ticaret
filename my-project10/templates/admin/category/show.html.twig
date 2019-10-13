@@ -1,0 +1,57 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}Category Detay{% endblock %}
+
+{% block content %}
+<div class="main-panel">
+    <div class="content-wrapper">
+
+
+        <div class="col-lg-10 stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Kategori Detay</h4>
+                    <p class="card-description">
+
+                    </p>
+                    <table class="table table-bordered">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ category.id }}</td>
+            </tr>
+            <tr>
+                <th>Parentid</th>
+                <td>{{ category.parentid }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ category.title }}</td>
+            </tr>
+            <tr>
+                <th>Keywords</th>
+                <td>{{ category.keywords }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ category.description }}</td>
+            </tr>
+            <tr>
+                <th>Status</th>
+                <td>{{ category.status }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_category_index') }}"class="btn btn-gradient-primary btn-rounded btn-fw">Listeye Git</a>
+
+    <a href="{{ path('admin_category_edit', {'id': category.id,'pid':category.parentid}) }}"class="btn btn-gradient-secondary btn-rounded btn-fw">Düzenle</a>
+
+    {{ include('admin/category/_delete_form.html.twig') }}
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+        {% endblock %}

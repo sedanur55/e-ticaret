@@ -1,0 +1,5 @@
+<form enctype="multipart/form-data" method = "post" action = "{{ path('admin_image_new',{'pid':pid}) }}">
+    <input name="productid" value="{{ pid }}" type="hidden" type="number" readonly/>
+    <input id = "file" name="imagename"type = "file" />
+    <input type = "submit" value = "submit" id = "submit" />
+</form>

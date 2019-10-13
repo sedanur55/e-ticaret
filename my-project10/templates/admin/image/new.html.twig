@@ -1,0 +1,10 @@
+
+
+    {{ include('admin/image/_form.html.twig') }}
+    {% for image in imagelist %}
+        <img src="{{ asset('uploads') }}/images/{{ image.image }}" height="200">
+        <a href="{{ path('admin_image_del', {'id': image.id,'pid':image.productid}) }}"class="btn btn-gradient-secondary btn-fw">sil</a>
+
+
+    {% endfor %}
+

@@ -1,0 +1,30 @@
+{% extends 'frontbase.html.twig' %}
+
+{% block title %}Üye Profil Düzenleme{% endblock %}
+{% block sidebar %} {% include ('home/usersidebar.html.twig') %} {% endblock %}
+{% block content %}
+
+
+
+    <div class="col-sm-9 padding-right">
+
+        <div class="row">
+
+            <div class="span9">
+
+                {{ include('userpanel/_form.html.twig', {'button_label': 'Update'}) }}
+
+            <a href="">back to list</a>
+
+            <a href="">edit</a>
+
+
+
+        </div>
+    </div>
+
+    </div> </div> </div>
+    </div> </div>
+{% endblock %}
+
+

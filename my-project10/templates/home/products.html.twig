@@ -1,0 +1,43 @@
+{% extends 'frontbase.html.twig' %}
+
+
+{% block title %} {{ data[0].title}} {% endblock %}
+{% block keywords %} {{ data[0].keywords}} {% endblock %}
+{% block description %} {{ data[0].description}} {% endblock %}
+
+{% block sidebar %}{{include ('home/sidebar.html.twig')}}{% endblock %}
+
+
+{% block content %}
+
+<div class="features_items">
+    {% for pr in products %}
+        <div class="col-sm-4">
+            <div class="product-image-wrapper">
+                <div class="single-products">
+                    <div class="productinfo text-center">
+                        <img src="{{ asset('uploads') }}/images/{{ pr.image }}" alt="" >
+                        <h2>{{ pr.sprice }}</h2>
+                        <p>{{ pr.title }}</p>
+                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                    </div>
+                    <div class="product-overlay">
+                        <div class="overlay-content">
+                            <h2>{{ pr.sprice }}</h2>
+                            <p><a href="{{ path('product_detail',{'id': pr.id}) }}"> {{ pr.title }}</a></p>
+                            <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="choose">
+                    <ul class="nav nav-pills nav-justified">
+                        <li><a href="#"><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
+                        <li><a href="#"><i class="fa fa-plus-square"></i>Add to compare</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div></div></div>
+
+{% endblock %}

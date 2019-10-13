@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Product{% endblock %}
+
+{% block body %}
+
+    <form enctype="multipart/form-data" action = "{{ path('admin_product_iupdate',{'id':id}) }}" method = "post" >
+        <input name="productid" value="{{id}}"  type="number" >
+        <input  name="imagename" type = "file" />
+        <input type = "submit" value = "submit" id = "submit" />
+    </form>
+
+{% if  product.image!=null %}
+    <img src="{{ asset('uploads') }}/images/{{ product.image }}" >
+{% endif %}
+{% endblock %}

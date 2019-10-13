@@ -1,0 +1,29 @@
+{% extends 'frontbase.html.twig' %}
+
+
+{% block title %} Hakkımızda {{ data[0].title}} {% endblock %}
+{% block keywords %} {{ data[0].keywords}} {% endblock %}
+{% block description %} {{ data[0].description}} {% endblock %}
+
+{% block content %}
+
+<div id="contact-page" class="container">
+    <div class="bg">
+        <div class="row">
+            <div class="col-sm-12">
+                <h2 class="title text-center">Hakkımızda </h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-8">
+                <div class="contact-form">
+                    {{ data[0].aboutus|raw}}
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+

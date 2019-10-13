@@ -1,0 +1,49 @@
+<form class="forms-sample" name="orders" action="{{ path('orders_new') }}" method="post">
+    <div class="form-group">
+        <label for="exampleInputUsername1">Ödenecek Tutar:</label>
+        <input type="text" class="form-control" name="orders[amount]" value="{{ total }}" placeholder="amount">
+    </div>
+    <hr>
+    KARGO ALICI BILGILERI
+    <hr>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Adı Soyadı :</label>
+        <input input type="text"class="form-control" name="orders[name]" value="{{ app.user.name }}" placeholder="name" >
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1">Adresi :</label>
+        <input type="text" class="form-control"name="orders[address]" value="{{ app.user.address }}" placeholder="Address">
+    </div>
+    <div class="form-group">
+        <label for="exampleInputConfirmPassword1">Şehir :</label>
+        <input type="text"class="form-control" name="orders[city]" value="{{ app.user.city }}" placeholder="subject">
+    </div>
+    <div class="form-group">
+        <label for="exampleInputConfirmPassword1">Telefon :</label>
+        <input type="text" class="form-control"name="orders[phone]" value="{{ app.user.phone }}" placeholder="subject" >
+    </div>
+    <hr>
+    KREDI KARTI BILGILERI
+    <hr>
+    <div class="form-group">
+        <label for="exampleInputConfirmPassword1">Adı Soyadı :</label>
+        <input type="text" class="form-control"name="cardholdername" placeholder="Kart Adı Soyadı">
+    </div>
+    <div class="form-group">
+        <label for="exampleInputConfirmPassword1">Kart Numarası :</label>
+        <input type="text"class="form-control" name="cardnumber" placeholder="Kart  Numarası">
+    </div>
+    <div class="form-group">
+        <label for="exampleInputConfirmPassword1">Son Kullanma Tarihi :</label>
+        <input type="text"class="form-control" name="cardvaliddates" placeholder="Son Kullanma Tarihi"">
+    </div>
+    <div class="form-group">
+        <label for="exampleInputConfirmPassword1">Güvenlik Kodu :</label>
+        <input type="text"class="form-control" name="cardsecuritycode" placeholder="Güvenlik Kodu">
+    </div>
+
+    <input type="hidden" name="token" value="{{ csrf_token('form-order') }}"/>
+
+    <button type="submit" class="btn btn-gradient-primary mr-2">Submit</button><br><br>
+
+</form>

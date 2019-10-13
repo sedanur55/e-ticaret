@@ -1,0 +1,62 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %} Üye Listesi {% endblock %}
+
+{% block content %}
+<div class="main-panel">
+    <div class="content-wrapper">
+
+
+        <div class="col-lg-25 stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Üye Listesi</h4>
+
+                    <table class="table">
+                <thead>
+                <tr>
+
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Address</th>
+
+                    <th>Type</th>
+                    <th>Status</th>
+                    <th>Show</th>
+                    <th>Delete</th>
+
+
+
+
+                </tr>
+                </thead>
+                <tbody>
+
+                {% for row in user %}
+                    <tr>
+                        <td>{{ row.id }}</td>
+                        <td>{{ row.name }}</td>
+                        <td>{{ row.email }}</td>
+                        <td>{{ row.address }}</td>
+
+                        <td>
+                            {% for item in row.roles %}
+                                {{ item }}
+                            {% endfor %}
+                        </td>
+                        <td>{{ row.status }}</td>
+
+                        <td><a href="{{ path('admin_user_edit',{'id':row.id}) }}"><button type="button" class="btn btn-gradient-secondary btn-fw">Düzenle</button></a></td>
+                        <td><a href="{{ path('admin_user_delete',{'id':row.id}) }}"><button type="button" class="btn btn-gradient-success btn-fw">SİL</button></a></td>
+
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            <a href="{{ path('admin_user_new') }}"class="btn btn-gradient-danger btn-fw">Create new</a>
+        </div>
+    </div></div>  </div>
+
+    <!-- /.content -->
+{% endblock %}
